@@ -9,6 +9,7 @@ The technologies used to perform this project were:
 - Path
 - Multer
 - Sharp
+
 To start this project you may first install NodeJS, and then once you opened the project you shall input these commands:
 
                   npm init
