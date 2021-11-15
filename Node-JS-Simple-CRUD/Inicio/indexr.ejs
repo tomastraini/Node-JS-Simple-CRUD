@@ -1,0 +1,55 @@
+<link rel="icon" type="image/png" href="https://www.shareicon.net/data/256x256/2016/04/12/748310_law_512x512.png" />
+
+
+<meta charset="utf-8">
+<head> 
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <form action="/Inicior" method="get" >
+            <div class="border border-danger rounded" style="text-align: right;">
+            <a class="recargar1 navbar-brand"  style="color:white; cursor:pointer;text-align: right; padding-left:10px;"  >Justice shop</a>
+            <button  type="submit" id="recargarbtn1" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        </form>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <form action="/Inicior" method="get">
+            <div class="border border-danger rounded mr-1" style="text-align: right; right :10px "> 
+            <a class="recargar11 nav-link active"  style="color:white; cursor:pointer;"  aria-current="page"><i class="fa fa-home fa-fw" aria-hidden="true"></i> Inicio</a>
+            <button  type="submit" id="recargarbtn11" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+        </form>
+        <div class="border border-danger rounded mr-1" style="text-align: right; right :10px "> 
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="color:white; cursor:pointer;"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Cargar
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <form action="/ABMClientes" method="get" >
+                <li><a class="cargaramb11 dropdown-item" href="#">Cargar clientes</a></li>
+                <button  type="submit" id="entraralabmcli11" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                </form>
+                <form action="/ABMProdutos" method="get" >
+                    <li><a class="cargarproductos dropdown-item" href="#">Cargar productos</a></li>
+                    <button  type="submit" id="entraralacargaproductos" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    </div>
+                </form>
+            </ul>
+            </li>
+           
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+           <script>
+            $(".cargarproductos").click(function() {
+                document.getElementById('entraralacargaproductos').click();
+            });
+
+           </script>

@@ -1,0 +1,39 @@
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="https://www.shareicon.net/data/256x256/2016/04/12/748310_law_512x512.png" />
+<div id="modalCargarProductos" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <center>
+      <div class="modal-header">
+        <label class="modal-title" style="color: black;"  id="exampleModalLabel">Carga de productos</label>
+      </div>
+      <div class="modal-">
+    <form method="POST" action="/cargarProductosA" name="frmCargarProdA">
+          <div class="mb-3">
+            <label for="recipient-name" style="color: black;"  class="col-form-label">Producto:</label>
+            <input id= "productoC"  name="productoC" type="text" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" style="color: black;"  class="col-form-label">Stock:</label>
+            <input id= "StockC"  name="StockC" type="text" class="form-control">
+          </div>
+          
+          <div class="row">
+          <div class="col">
+            <label for="message-text" style="color: black;" class="col-form-label">Precio:</label>
+            <input id= "PrecioC" name="PrecioC" type="number" class="form-control">
+          </div>
+
+
+          <div class="col">
+            <label for="message-text" style="color: black;" class="col-form-label">Moneda:</label>
+            <select  id= "MonedaC" name="MonedaC" class="form-select" aria-label="Default select example">
+              <option selected value="AR$">AR$</option>
+              <option value="BTC">Bitcoins</option>
+              <option value="U$D">Dólares</option>
+              <option value="€">Euros</option>
+            </select>
+          </div>
+
+          </div>
+     
