@@ -1,0 +1,162 @@
+app.post('/buscadorprod', function(req, res){ 
+    try {
+        let busquedaporod = req.body.buskedaprod
+        connection.query("SELECT * FROM `usuarios` WHERE id_usuario = '"+usuario+"' and contrasena = '"+contrahash+"'"
+        ,function clientes (err, result, campos){
+            if (err) throw err;
+            try {
+            let usu = result[0]["id_usuario"];
+            let con = result[0]["contrasena"];
+            let fotperf = result[0]["foto_perfil"];
+            let permix1 = result[0]["permiso"];
+            let x;
+            let foting = 
+            "<form class='d-flex' style='position:absolute; top:10px; right:20%;' method='POST' action='/buscadorprod'>"+
+                "<input class='form-control me-2' name='buskedaprod' type='search' placeholder='Buscar' aria-label='Search'>"+
+                "<button class='btn btn-outline-danger' type='submit'>Buscar</button>"+
+            "</form>"+
+    
+            "<form action='/EditarPerfil' method='get'>   <div class='dropdown'>"+
+            "<img  src='http://localhost:1002/bd-imagenes/"+ fotperf +"' height='50' width='50' class='dropdown-toggle' type='button' id='dropdownMenuButton1' data-bs-toggle='dropdown' aria-expanded='false'>"+
+            "</img>"+
+            "<ul class='dropdown-menu' aria-labelledby='dropdownMenuButton1'>"+
+            "  <li><form action='/EditarPerfil' method='get'><a style='cursor:pointer;' class='xDPER dropdown-item' ><i class='fa fa-user' aria-hidden='true'></i> Editar perfil</a></li></form>"+
+            "</ul><button  type='submit' id='abperf' class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>"+
+            "<span class='navbar-toggler-icon'></span>"+
+            "</button>"+
+            "<script>$('.xDPER').click(function() {document.getElementById('abperf').click();});</script>"+
+            "</div>"
+    
+            let resi = 
+            '<meta charset="utf-8"><body style="background-color:#0a0a0a;">'+
+            "<button id='btnAProd' class='btnAProd btn btn-danger' data-toggle='modal' style='position: absolute; top: 11.6%; right:3%; height:50px; width:100px; z-index:9;'>"+
+            "<i class='fa fa-plus-circle' aria-hidden='true'></i> Cargar"+
+            "</button>"+
+            "<table class='table table-bordered bg-light' style='position:absolute; top:20%; width:100%;' >"+
+            "<thead class='bg-dark'>"+
+            "<tr>"+
+            "<th style='color:white;' scope='col'>#</th>"+
+            "<th style='color:white;' scope='col'>Producto</th>"+
+            "<th style='color:white;' scope='col'>Stock</th>"+
+            "<th style='color:white;' scope='col'>Precio</th>"+
+            "<th style='color:white;' scope='col'>Proveedor</th>"+
+            "<th style='color:white;' scope='col'>Modificación</th>"+
+            "</tr>"+
+            "</thead>"+
+            "<tbody>"
+        connection.query("SELECT `id_producto`, `producto`, `stock`, `precio`, `razon_social_proveedor`, productos.id_proveedor FROM `productos`"+
+        " join proveedores on proveedores.id_proveedor = productos.id_proveedor WHERE concat(razon_social_proveedor, precio, stock, producto) like ? ORDER BY id_producto ASC;", ['%' + busquedaporod + '%']
+
+        ,function clientes (err2, result2, campos){
+            if (err2) throw err2;
+            try {
+                for (let row in result2) {
+                    resi += "<tr><td id='idprodrow'>"
+                    + result2[row]["id_producto"]  
+                    resi += "</td>"
+                    resi += "<td id='nomprodrow'>"
+                    + result2[row]["producto"]  
+                    resi += "</td>"
+                    resi += "<td id='stockprodrow'>"
+                    + result2[row]["stock"]  
+                    resi += "</td>"
+                    resi += "<td id='precprodrow'>"
+                    + result2[row]["precio"]  
+                    resi += "</td>"
+                    resi += "<td id='provrow'>"
+                    + result2[row]["razon_social_proveedor"]  
+                  
+                    resi += '<td><button type="button" class="btnEditarP me-md-2 btn btn-primary btn-space" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Editar</a>'
+                    resi += '<button type="button" class="btnBorrarP btn btn-danger btn-spacio" data-toggle="modal"><span class="glyphicon glyphicon-edit"></span> Borrar </a></td>'
+                    resi += "</td>"
+                    resi += "<td style='display:none;' id='iddeproveedorprod'>"
+                    + result2[row]["id_proveedor"]  
+                    resi += "</tr>"
+                    
+                }
+                    "  </tbody>"+
+                    " </table>"
+                
+                resi += '</body>';                
+                //<td type='text' value=''+ result2[row]['id_proveedor'] +' id='iddeproveedorprod'></td>
+                let proveedores ="<br><select id='proveedC' name='proveedC' class='form-select' aria-label='Default select example'>"+
+                "<option value='x'>Proveedores</option>"
+                connection.query("SELECT * FROM `proveedores`"
+                ,function clientes4 (err3, result3, campos){
+                if (err3) throw err3;
+                for (let row4 in result3) {
+                    proveedores +="<option  value='"+ result3[row4]["id_proveedor"]  +"'>"+ result3[row4]["razon_social_proveedor"] +"</option>"
+                    }
+                
+                proveedores += "</select>"
+                
+    
+                let proveedores1 ="<br><select id='proveedC1' name='proveedC1' class='proveedC1 form-select' aria-label='Defaulting'>"+
+                "<option value='x'>Proveedores"
+                connection.query("SELECT * FROM `proveedores`"
+                ,function clientes4 (err4, result4, campos){
+                if (err4) throw err4;
+                for (let row5 in result4) {
+
+                    proveedores1 +="<option value='"+ result4[row5]["id_proveedor"]  +"'>"+ result4[row5]["razon_social_proveedor"] +"</option>"
+                    }
+                
+                proveedores1 += "</select>"
+
+                
+                if ((usu == usuario) && (con == contrahash) && (permix1 == "admin")){
+                    res.setHeader('Content-type', 'text/html');
+                    res.write(inicio);
+                    res.write(inicior);
+                    res.write(foting)
+    
+                    
+    
+                    res.write(ABMProductoModalAgregar)
+                    res.write(proveedores)
+                    res.write(ABMProductoModalAgregar2)
+                    
+                    res.write(ABMProductoModalModificar)
+                    res.write(proveedores1)
+                    res.write(ABMProductoModalModificar2)
+    
+                    res.write(ABMProductoModalPortada)
+
+                    res.write(ABMProductoModalBorrar)
+                    
+                   
+
+                    res.write(iniciorp2)
+                    res.write(resi);
+    
+                    res.write(ABMProductox)
+    
+                    res.end();
+                }
+                
+            })
+        })
+            }catch (error) {   
+                res.writeHead(302, {
+                    'Location': '/Inicior'
+                });
+                res.end();
+            }
+        })
+           
+            } catch (error) {   
+                
+                res.writeHead(302, {
+                    'Location': '/login'
+                });
+                res.end();
+            }
+            
+        })
+    } catch (error) {
+        res.writeHead(302, {
+            'Location': '/ABMProdutos'
+        });
+        res.end();
+    }
+})

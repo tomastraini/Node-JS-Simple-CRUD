@@ -1,0 +1,2 @@
+            let portadaprodimg = '<img src="http://localhost:1002/bd-imgproductos/default.png" name="picus" class="picture-src" id="wizardPicturePreview" title="">'+ 
+            '<input type="file" id="wizard-picture" value= "imgperfil\default.png" class="" name="fotora">'
