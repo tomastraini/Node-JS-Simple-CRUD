@@ -1,9 +1,0 @@
-<script>
-modalBor = new bootstrap.Modal(document.getElementById('modalBorrar'));
-$(".btnBorrar").click(function() {
-    var $rows = $(this).closest("tr");
-    var $ids = $rows.find("#idclirow").text();
-    document.getElementById('achex').value = $ids;
-    modalBor.show();
-});
-</script>
