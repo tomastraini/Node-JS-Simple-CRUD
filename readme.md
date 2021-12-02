@@ -24,4 +24,22 @@ In case you manage Linux OS you may have to run these commands as sudo. In case 
 
 The NPM version used is 7.3.0 (npm --version to get your version)
 
+# IMAGES
+
+<b> Menú principal: </b>
+
+![alt text](https://github.com/tomastraini/Node-JS-Simple-CRUD/blob/main/Images/Node1.png?raw=true)
+
+<b> CRUD de clientes: </b>
+
+![alt text](https://github.com/tomastraini/Node-JS-Simple-CRUD/blob/main/Images/Node2.png?raw=true)
+
+<b> CRUD de productos: </b>
+
+![alt text](https://github.com/tomastraini/Node-JS-Simple-CRUD/blob/main/Images/Node3.png?raw=true)
+
+<b> Editar perfil: </b>
+
+![alt text](https://github.com/tomastraini/Node-JS-Simple-CRUD/blob/main/Images/Node4.png?raw=true)
+
 Enjoy!
